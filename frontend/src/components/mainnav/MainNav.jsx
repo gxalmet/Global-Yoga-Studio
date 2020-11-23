@@ -29,7 +29,7 @@ export default function MainNav() {
                     <button onClick={handleMenu}>
                         &#9776;
                     </button>
-                    <a href="/">Global Yoga Studio</a>
+                    <Link to="/">Global Yoga Studio</Link>
                 </div>
                 {/* <div className="header-links">
                     {
