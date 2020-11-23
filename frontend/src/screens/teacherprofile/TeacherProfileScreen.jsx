@@ -103,7 +103,7 @@ export default function TeacherProfileScreen() {
         bodyFormData.append('myFile', file);
 
         try {
-            const { data } = await Axios.post('http://localhost:3700/api/files/upload', bodyFormData, {
+            const { data } = await Axios.post('/api/files/upload', bodyFormData, {
               headers: {
                 'Content-Type': 'multipart/form-data',
                 Authorization: `Bearer ${userInfo.token}`,

@@ -14,7 +14,7 @@ export default function ImageBox(props){
             if(img.length===0) {
                 if(imgID){
                     try {
-                        const { data } = await Axios.get(`http://localhost:3700/api/files/getfile${imgID}`);
+                        const { data } = await Axios.get(`/api/files/getfile${imgID}`);
                         setImg(data.file.imgurl);
                     } catch (error) {
                         // setErrorUpload(error.message);
