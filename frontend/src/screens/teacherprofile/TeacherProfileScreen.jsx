@@ -89,11 +89,9 @@ export default function TeacherProfileScreen() {
 
     }
     const createTeacherProfile = (e) => {
-        console.log("teacherCreated");
-        console.log(teacherCreated);
 
-            dispacth(teacherCreateAction(userInfo._id));
-
+        dispacth(teacherCreateAction(userInfo._id));
+        dispacth(teacherDetailsUserAction(userInfo._id));
         
     }
     const handleChangeImg = async (e) => {
@@ -138,8 +136,7 @@ export default function TeacherProfileScreen() {
         
     }, [dispacth, loadingRead, teacherRead, userInfo._id]);
 
-    console.log("teacherRead");
-    console.log(teacherRead);
+
     if(teacherRead === null){
         return (
             <div className="form">
