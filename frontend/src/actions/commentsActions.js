@@ -10,7 +10,7 @@ export const commentsListAction = (teacherID) => async(dispatch, getState) => {
 
     try {
 
-        const url = `http://localhost:3700/api/comments/readall${teacherID}`;
+        const url = `/api/comments/readall${teacherID}`;
 
         const { data } = await Axios.get(url, {
             headers: {
@@ -41,7 +41,7 @@ export const commentCreateAction = (teacherID, userID, text) => async(dispatch, 
 
     try {
 
-        const url = "http://localhost:3700/api/comments/create";
+        const url = "/api/comments/create";
 
         const { data } = await Axios.post(url, body, {
             headers: {

@@ -6,7 +6,7 @@ const { USER_SIGNIN_REQUEST, USER_SIGNIN_SUCCESS, USER_SIGNIN_FAIL, USER_SIGNOUT
 export const signIn = (email, password) => async(dispatch) => {
     dispatch({ type: USER_SIGNIN_REQUEST });
     try {
-        const url = `http://localhost:3700/api/users/signin`;
+        const url = `/api/users/signin`;
 
         const { data } = await Axios.post(url, { email, password });
 
@@ -30,7 +30,7 @@ export const signOut = () => (dispatch) => {
 export const register = (name, surname, email, password, teacher) => async(dispatch) => {
     dispatch({ type: USER_REGISTER_REQUEST });
     try {
-        const url = `http://localhost:3700/api/users/register`;
+        const url = `/api/users/register`;
 
         const { data } = await Axios.post(url, { name, surname, email, password, teacher });
 
@@ -51,7 +51,7 @@ export const update = ({ userId, name, surname, email, password, teacher }) => a
 
     dispatch({ type: USER_UPDATE_REQUEST, payload: { userId, name, surname, email, password } });
     try {
-        const url = `http://localhost:3700/api/users/updateuser` + userId;
+        const url = `/api/users/updateuser` + userId;
 
         const { data } = await Axios.put(url, { name, surname, email, password, teacher }, {
             headers: {

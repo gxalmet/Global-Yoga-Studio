@@ -24,7 +24,7 @@ export const teacherDetailsAction = (teacherID) => async(dispatch) => {
 
     dispatch({ type: TEACHER_DETAIL_REQUEST });
     try {
-        const url = `http://localhost:3700/api/teachers/readteacher${teacherID}`;
+        const url = `/api/teachers/readteacher${teacherID}`;
 
         const { data } = await Axios.get(url);
 
@@ -43,7 +43,7 @@ export const teacherCreateAction = (userID) => async(dispatch, getState) => {
     dispatch({ type: TEACHER_CREATE_REQUEST });
 
     try {
-        const url = `http://localhost:3700/api/teachers/createteacher${userID}`;
+        const url = `/api/teachers/createteacher${userID}`;
 
         const { data } = await Axios.post(url, {}, {
             headers: {
@@ -78,7 +78,7 @@ export const teacherUpdateAction = (teacherid, name, country, img, place, langua
     dispatch({ type: TEACHER_UPDATE_REQUEST });
 
     try {
-        const url = `http://localhost:3700/api/teachers/updateteacher${teacherid}`;
+        const url = `/api/teachers/updateteacher${teacherid}`;
 
         const { data } = await Axios.put(url, body, {
             headers: {
@@ -99,7 +99,7 @@ export const teacherDetailsUserAction = (userID) => async(dispatch, getState) =>
 
     dispatch({ type: TEACHER_DETAIL_BYUSER_REQUEST });
     try {
-        const url = `http://localhost:3700/api/teachers/readbyuserteacher${userID}`;
+        const url = `/api/teachers/readbyuserteacher${userID}`;
 
         const { data } = await Axios.get(url, {
             headers: {
