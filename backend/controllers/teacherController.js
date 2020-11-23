@@ -1,5 +1,5 @@
 import Teacher from '../models/teacherModel.js';
-import data from '../data.js';
+
 
 var teacherController = {
     insertManyTeacher: async function(req, res) {

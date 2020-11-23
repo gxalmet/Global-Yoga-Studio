@@ -7,6 +7,7 @@ import commentRouter from './routes/commentRouter.js';
 import cors from 'cors';
 import User from './models/userModel.js';
 import Teacher from './models/teacherModel.js';
+import path from 'path';
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use('/api/teachers', teacherRoutes);
 app.use('/api/files', uploadRouter);
 app.use('/api/comments', commentRouter);
 
+const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, 'frontend/build')));
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '/frontend/build/index.html'));

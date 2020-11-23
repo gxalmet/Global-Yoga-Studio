@@ -2,7 +2,7 @@ import Comment from '../models/commentModel.js';
 import mongodb from 'mongodb';
 const { ObjectId } = mongodb;
 import bcrypt from 'bcryptjs';
-import data from '../data.js';
+
 import { getToken, generateToken } from '../utils.js';
 
 
