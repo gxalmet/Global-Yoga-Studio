@@ -1,0 +1,10 @@
+.teacher-detail-img {
+    flex: 1 1 30rem;
+}
+
+.teacher-detail-img img {
+    max-width: 30rem;
+    max-height: 30rem;
+    /* widows: 80%; */
+    border-radius: 50%;
+}

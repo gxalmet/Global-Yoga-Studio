@@ -1,0 +1,73 @@
+.commentBox {
+    display: grid;
+    border: 3px solid grey;
+    border-radius: .5rem;
+    margin: 1rem;
+    padding-top: 3rem;
+    padding-left: 3rem;
+}
+
+.commentBox h3 {
+    color: grey;
+    font-size: 1.5rem;
+}
+
+.commentList {
+    display: table-column;
+    /* border: 3px solid grey;
+    border-radius: .5rem; */
+}
+
+.comment {
+    margin: 4rem;
+    display: grid;
+    border-top: 3px solid grey;
+    /* border: 3px solid grey;
+    border-radius: .5rem; */
+}
+
+.comment-form {
+    display: inline-block;
+    /* border: 3px solid grey;
+    border-radius: .5rem; */
+    font-size: 1.3rem;
+    color: grey;
+}
+
+.comment-form h3 {
+    margin: .5rem
+}
+
+.comment-author {
+    display: inline-block;
+    margin: 0.8rem;
+    font-size: 1.5rem;
+    color: grey;
+    /* border: 3px solid grey;
+    border-radius: .5rem; */
+}
+
+.comment-text {
+    display: inline-block;
+    margin-left: 4rem;
+    font-size: 1.2rem !important;
+    color: grey;
+}
+
+.comment-input {
+    /* display: inline-block; */
+    width: 100rem;
+    padding: .8rem;
+    border: 3px solid grey;
+    border-radius: 0.5rem;
+    color: grey;
+    margin-bottom: 1rem;
+}
+
+.comment-button {
+    width: 30rem;
+    padding: .8rem;
+    border: 3px solid grey;
+    border-radius: 0.5rem;
+    display: grid;
+}

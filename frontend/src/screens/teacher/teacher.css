@@ -1,0 +1,172 @@
+#root {
+    height: 100%;
+}
+
+.teacher-detail-title {
+    font-size: 3rem;
+    color: grey;
+    text-align: center;
+}
+
+.teacher-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    opacity: 1;
+    animation: fadeIn 5s ease;
+}
+
+.teacher-detail-img {
+    flex: 1 1 30rem;
+}
+
+.teacher-detail-img img {
+    max-width: 30rem;
+    max-height: 30rem;
+    /* widows: 80%; */
+    border-radius: 50%;
+    opacity: 1;
+    animation: fadeIn 5s ease;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.teacher-info {
+    flex: 1 1 30rem;
+    border: 3px solid grey;
+    border-radius: 0.5rem;
+    font-size: 2 rem;
+    padding: 0.5rem;
+    margin: 1rem;
+}
+
+.teacher-type {
+    flex: 1 1 30rem;
+    border: 3px solid grey;
+    border-radius: 0.5rem;
+    font-size: 2 rem;
+    padding: 0.5rem;
+    margin: 1rem;
+}
+
+.teacher-social {
+    flex: 1 1 30rem;
+    border: 3px solid grey;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin: 1rem;
+}
+
+.teacher-place-country {
+    font-size: 2rem;
+    color: grey;
+    text-align: left;
+}
+
+.teacher-place-city {
+    font-size: 2rem;
+    color: grey;
+    text-align: left;
+    padding-top: 0rem;
+}
+
+.teacher-language {
+    font-size: 1.5rem;
+    color: grey;
+    padding: 0.5rem
+}
+
+.teacher-type {
+    font-size: 1.5rem;
+    color: grey;
+}
+
+.teacher-social {
+    font-size: 1.5rem;
+    color: grey;
+}
+
+
+/* .teacher-urlYoutube {
+    font-size: 1.5rem;
+    color: grey;
+}
+
+.teacher-urlInstagram {
+    font-size: 1.5rem;
+    color: grey;
+} */
+
+.teacher-description {
+    text-align: justify;
+    font-size: 1.5rem;
+    color: grey;
+    border: 3px solid grey;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin: 1rem;
+    flex: 1 1 30rem;
+}
+
+.teacher-description-textarea {
+    word-break: break-all;
+    white-space: pre-wrap;
+}
+
+.teacher-maps {
+    text-align: justify;
+    font-size: 1.5rem;
+    color: grey;
+    border: 3px solid grey;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin: 1rem;
+    flex: 1 1 60rem;
+}
+
+.teacher-large-details {
+    flex-direction: column;
+}
+
+.Maps {
+    width: 60rem;
+}
+
+.teacher-social ul,
+.teacher-info ul,
+.teacher-type ul {
+    list-style-type: none;
+}
+
+.teacher-social li {
+    flex-direction: column;
+    padding: .5rem;
+}
+
+.youtube {
+    width: 80%;
+    background-color: grey;
+    color: white;
+    font-size: 1.5rem;
+    border-radius: .5rem;
+    padding: 0.5rem;
+}
+
+.instagram {
+    width: 80%;
+    padding: 0.5rem;
+    cursor: pointer;
+    /* background-color: rgb(201, 92, 201); */
+    border-radius: 0.5rem;
+    border: grey solid;
+}
