@@ -6,7 +6,8 @@ import dotenv from 'dotenv';
 
 const conf = dotenv.config();
 
-const MongoURI = conf.parsed.MONGODB_URL;
+//const MongoURI = conf.parsed.MONGODB_URL;
+const MongoURI = process.env.MONGODB_URL;
 // const storage = multer.diskStorage({
 //     destination: "./public/uploads/",
 //     filename: function(req, file, cb) {
