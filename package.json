@@ -10,14 +10,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/gxalmet/Global-Yoga-Studio-Network-backend.git"
+        "url": "git+https://github.com/gxalmet/Global-Yoga-Studio.git"
     },
     "author": "Gonzalo Xalmet",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/gxalmet/Global-Yoga-Studio-Network-backend/issues"
+        "url": "https://github.com/gxalmet/Global-Yoga-Studio/issues"
     },
-    "homepage": "https://github.com/gxalmet/Global-Yoga-Studio-Network-backend#readme",
+    "homepage": "https://github.com/gxalmet/Global-Yoga-Studio#readme",
     "dependencies": {
         "bcrypt": "^5.0.0",
         "bcryptjs": "^2.4.3",
