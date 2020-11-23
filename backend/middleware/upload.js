@@ -5,7 +5,8 @@ import dotenv from 'dotenv';
 
 const conf = dotenv.config();
 
-const MongoURI = conf.parsed.MONGODB_URL || process.env.MONGODB_URL;
+// const MongoURI = conf.parsed.MONGODB_URL || process.env.MONGODB_URL;
+const MongoURI = process.env.MONGODB_URL;
 
 var storage = new GridFsStorage({
     url: MongoURI,
