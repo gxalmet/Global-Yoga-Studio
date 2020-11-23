@@ -8,7 +8,7 @@ export const teachersListAction = () => async(dispatch) => {
 
     try {
 
-        const { data } = await Axios.get("http://localhost:3700/api/teachers/readAllteacher");
+        const { data } = await Axios.get("/api/teachers/readAllteacher");
 
         dispatch({ type: TEACHERS_LIST_SUCCESS, payload: data.teachers });
 
