@@ -3,4 +3,5 @@
 /public
 /template
 /frontend/node_modules
-/vscode
+.vscode
+/backend/global
