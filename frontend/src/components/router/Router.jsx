@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 //import MyMap from './components/googleMaps/MyMap';
 import RegisterScreen from '../../screens/register/RegisterScreen';
 import TeacherProfileScreen from '../../screens/teacherprofile/TeacherProfileScreen';
+import  MyMap  from '../googleMaps/MyMap';
 export default function Router(){
     const userSignIn = useSelector((state)=>state.userSignIn);
     const {userInfo} = userSignIn;
@@ -25,7 +26,7 @@ export default function Router(){
         
             <Route path="/teacher/:id" component={TeacherScreen}></Route>
             <Route path="/signin" component={SignInScreen}></Route>
-            {/* <Route path="/maps" component={MyMap}></Route> */}
+            <Route path="/maps" component={MyMap}></Route>
             <Route path="/register" component={RegisterScreen}></Route>
             <Route path="/userprofile" component={UserProfile}></Route>
             <Route path="/teacherprofile" component={TeacherProfileScreen}></Route>

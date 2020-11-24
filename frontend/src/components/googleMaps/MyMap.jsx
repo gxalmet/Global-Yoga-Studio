@@ -1,5 +1,7 @@
 //import React, { useState  } from 'react';
-import React  from 'react'
+import React, { Component } from 'react';
+import { Map, GoogleApiWrapper } from 'google-maps-react';
+
 // import { GoogleMap, LoadScript, Marker,  } from '@react-google-maps/api';
 // import {
 //   getGeocode,
@@ -15,8 +17,13 @@ import React  from 'react'
 //   lat: 41.390205,
 //   lng: 2.154007
 // };
+
+const mapStyles = {
+  width: '80%',
+  height: '80%'
+};
  
-function MyMap(props) {
+export class MyMap extends Component  {
   
   // const teacher = props.teacher.teacher;
   // const marker = useState({lat: '',lng: ''});
@@ -51,10 +58,22 @@ function MyMap(props) {
   // // var origin = new window.google.maps.Point(0, 0);
   // // var anchor = new window.google.maps.Point(15, 15);
   // // var scaledSize = new window.google.maps.Size(30, 30);
-  
+
  
-  return (
-    <div></div>
+  render() {
+    return (
+
+    <Map
+        google={this.props.google}
+        zoom={14}
+        style={mapStyles}
+        initialCenter={
+          {
+            lat: 41.40359,
+            lng: 2.15379
+          }
+        }
+      /> )
     // <LoadScript
     //   googleMapsApiKey="AIzaSyCQrgyzK8ytVni4hOcM-eMVkto1mz2IcGg"
     // >
@@ -84,7 +103,9 @@ function MyMap(props) {
     //     <></>
     //   </GoogleMap>
     // </LoadScript>
-  )
+      }
 }
  
-export default React.memo(MyMap)
+export default GoogleApiWrapper({
+  apiKey: "AIzaSyCQrgyzK8ytVni4hOcM-eMVkto1mz2IcGg"
+})(MyMap);

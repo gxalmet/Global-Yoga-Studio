@@ -10,6 +10,10 @@ import Axios from 'axios';
 import { teacherCreateAction, teacherDetailsUserAction, teacherUpdateAction } from '../../actions/teachersActions';
 import './TeacherProfileScreen.css';
 import ImageBox from '../../components/image/ImageBox';
+import { 
+    Form, 
+    Button
+} from 'react-bootstrap';
 
 export default function TeacherProfileScreen() {
     const dispacth = useDispatch();
@@ -30,7 +34,11 @@ export default function TeacherProfileScreen() {
     const [des, setDes] = useState(initialState);
 
     const teacherProfileCreate = useSelector((state)=>state.teacherProfileCreate);
-    const { loading, error, teacher: teacherCreated } = teacherProfileCreate;
+    const { 
+        loading, 
+        error, 
+        // teacher: teacherCreated 
+    } = teacherProfileCreate;
 
     
     const teacherProfileRead = useSelector((state)=>state.teacherProfileRead);
@@ -147,7 +155,7 @@ export default function TeacherProfileScreen() {
     }else{
         return (
             <div>
-                <form className="form" onSubmit={submitHandler}>
+                <Form className="form" onSubmit={submitHandler}>
                     <div>
                         <h1>Teacher profile</h1>
                     </div>
@@ -164,97 +172,101 @@ export default function TeacherProfileScreen() {
                             clas="teacher-detail-img"
                             alt="teacher"></ImageBox>
                         <div>
-                            <input type="file" onChange={handleChangeImg}/>
+                            <Form.File 
+                                id="custom-file"
+                                label={img}
+                                custom
+                                onChange={handleChangeImg}/>
                             
                             {/* <img src={img} className="teacher-detail-img" alt="Your Awesome Image"/> */}
                         </div>
                     </div>
                     <div>
-                        <label htmlFor="name">Name</label>
-                        <input type="text" 
+                        <Form.Label htmlFor="name">Name</Form.Label>
+                        <Form.Control type="text" 
                             id="name"
                             required={true} 
                             defaultValue = {name}
                             onChange={(e)=>setName(e.target.value)}/>
                     </div>
                     <div>
-                        <label htmlFor="country">Country</label>
-                        <input type="text" 
+                        <Form.Label htmlFor="country">Country</Form.Label>
+                        <Form.Control type="text" 
                             id="country"
                             required={true} 
                             defaultValue = {country}
                             onChange={(e)=>setCountry(e.target.value)}/>
                     </div>
                     <div>
-                        <label htmlFor="place">Place</label>
-                        <input type="text" 
+                        <Form.Label htmlFor="place">Place</Form.Label>
+                        <Form.Control type="text" 
                             id="place"
                             required={true} 
                             defaultValue = {place}
                             onChange={(e)=>setPlace(e.target.value)}/>
                     </div>
                     <div>
-                        <label htmlFor="languages">Languages</label>
+                        <Form.Label htmlFor="languages">Languages</Form.Label>
                         
-                        <select 
-                            id="type" 
-                            multiple={true}
+                        <Form.Control as="select" multiple 
                             onChange={handleChangeLanguages} 
                             value={languages}>
                                 {languagesList.map((langItem,j)=>{
                                     return <option key ={j} value={langItem.value}>{langItem.label}</option>    
                                 })}
                             
-                        </select>
+                        </Form.Control>
                         
                     </div>
                     <div>
-                        <label htmlFor="remote">Remote</label>
-                        <input type="checkbox" 
+                        
+                        <Form.Check type="checkbox"
                             id="remote"
+                            label="Remote classes available"
                             defaultValue = {remote}
                             onChange={(e)=>setRemote(e.target.value)}/>
                     </div>
                     <div>
-                        <label htmlFor="type">Type</label>
-                        <select 
-                            id="type" 
-                            multiple={true}
+                        <Form.Label htmlFor="type">Type</Form.Label>
+                        <Form.Control 
+                            as="select" 
+                            multiple
                             onChange={handleChangeTypes} 
                             value={type}>
                                 {yogaList.map((yogaItem,i)=>{
                                     return <option key ={i} value={yogaItem.value}>{yogaItem.label}</option>    
                                 })}
                             
-                        </select>
+                        </Form.Control>
                     </div>
                     <div>
-                        <label htmlFor="type">urlInstagram</label>
-                        <input type="text" 
+                        <Form.Label htmlFor="type">urlInstagram</Form.Label>
+                        <Form.Control
                             id="type"
                             defaultValue = {urlInstagram}
                             onChange={(e)=>setUrlInstagram(e.target.value)}/>
                     </div>
                     <div>
-                        <label htmlFor="type">urlYoutube</label>
-                        <input type="text" 
+                        <Form.Label htmlFor="type">urlYoutube</Form.Label>
+                        <Form.Control
+                            type="text" 
                             id="type"
                             defaultValue = {urlYoutube}
                             onChange={(e)=>setUrlYoutube(e.target.value)}/>
                     </div>
                     <div>
-                        <label htmlFor="type">description</label>
-                        <textarea
-                            id="description"
+                        <Form.Label htmlFor="type">description</Form.Label>
+                        <Form.Control as="textarea" 
                             defaultValue = {des}
-                            rows="4" cols="50"
+                            rows="20" 
+                            cols="80"
                             onChange={(e)=>setDes(e.target.value)}/>
                     </div>
                     <div>
-                        <label ></label>
-                        <button className="primary" type="submit">Save profile</button>
+                        <Form.Label ></Form.Label>
+                        <Button className="primary" type="submit">Save profile</Button>
                     </div>
-                </form>
+                </Form>
             </div>
         );
     }

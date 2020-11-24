@@ -26,7 +26,6 @@
 .teacher-detail-img img {
     max-width: 30rem;
     max-height: 30rem;
-    /* widows: 80%; */
     border-radius: 50%;
     opacity: 1;
     animation: fadeIn 5s ease;
@@ -43,7 +42,8 @@
 
 .teacher-info {
     flex: 1 1 30rem;
-    border: 3px solid grey;
+    border: 1px solid grey;
+    box-shadow: .2rem .2rem grey;
     border-radius: 0.5rem;
     font-size: 2 rem;
     padding: 0.5rem;
@@ -61,23 +61,26 @@
 
 .teacher-social {
     flex: 1 1 30rem;
-    border: 3px solid grey;
+    border: 1px solid grey;
+    box-shadow: .2rem .2rem grey;
     border-radius: 0.5rem;
     padding: 0.5rem;
     margin: 1rem;
 }
 
 .teacher-place-country {
-    font-size: 2rem;
+    font-size: 1rem;
+    display: flex;
     color: grey;
     text-align: left;
 }
 
 .teacher-place-city {
-    font-size: 2rem;
+    font-size: 1rem;
     color: grey;
-    text-align: left;
+    text-align: right;
     padding-top: 0rem;
+    display: inline;
 }
 
 .teacher-language {
@@ -96,22 +99,12 @@
     color: grey;
 }
 
-
-/* .teacher-urlYoutube {
-    font-size: 1.5rem;
-    color: grey;
-}
-
-.teacher-urlInstagram {
-    font-size: 1.5rem;
-    color: grey;
-} */
-
 .teacher-description {
     text-align: justify;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: grey;
-    border: 3px solid grey;
+    border: 1px solid grey;
+    box-shadow: .2rem .2rem grey;
     border-radius: 0.5rem;
     padding: 1.5rem;
     margin: 1rem;
@@ -166,7 +159,6 @@
     width: 80%;
     padding: 0.5rem;
     cursor: pointer;
-    /* background-color: rgb(201, 92, 201); */
     border-radius: 0.5rem;
     border: grey solid;
 }
