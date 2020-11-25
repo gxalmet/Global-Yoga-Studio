@@ -10,7 +10,12 @@ import LanguagesBox from '../../components/languages/LanguagesBox';
 import YogaBox from '../../components/yoga/YogaBox';
 import ImageBox from '../../components/image/ImageBox';
 import CommentsBox from '../../components/comments/CommentsBox';
-
+import { 
+    Container,
+    Row,
+    Col 
+//    Button 
+} from 'react-bootstrap';
 import {
     faYoutube,
     faInstagram
@@ -40,66 +45,133 @@ export default function TeacherScreen(props){
     }else{
         if(teacher){
             return (
-                <React.Fragment>
-                    <h3 className="teacher-detail-title">{teacher.name}</h3>
-                    <div className="teacher-detail">
-                        <div>
-                            <ImageBox
-                                    imageID={teacher.img}
-                                    clas="teacher-detail-img"
-                                    alt="teacher"></ImageBox>                        
-                            <div className="teacher-social"> 
-                                <ul >
-                                    { teacher.urlYoutube.length > 2 &&
-                                        <li >
-                                            <a href={teacher.urlYoutube} className="youtube social">
-                                                <FontAwesomeIcon icon={faYoutube} size="1x" />
-                                            </a>
-                                            <button className="youtube" onClick={navigate(teacher.urlYoutube)}>Youtube</button>
-                                        </li>  
-                                    }
-                                    { teacher.urlInstagram.length > 2  &&
-                                        <li >
-                                            <a href={teacher.urlInstagram} className="youtube social">
-                                                <FontAwesomeIcon icon={faInstagram} size="1x" />
-                                            </a>
-                                            {/* <button className="instagram" onClick={navigate(teacher.urlInstagram)}>Instagram</button> */}
-                                        </li>  
-                                    }
-                                </ul>
-                            </div>
+                
+                    <Container>
+                        <Row>
+                            <Col>
+                                <h3 className="teacher-detail-title">{teacher.name}</h3>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col className="justify-content-md-center">
+                            </Col>
+                            <Col className="justify-content-md-center">
+                                <ImageBox
+                                        imageID={teacher.img}
+                                        clas="teacher-detail-img"
+                                        alt="teacher"></ImageBox>
+                            </Col>
+                            <Col className="justify-content-md-center">
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col className="justify-content-md-center">
+                                <LanguagesBox 
+                                    class="product-list"
+                                    classitem="product-list-li"
+                                    languages={teacher.languages}>
+                                </LanguagesBox>
+                            </Col>
+                            <Col className="justify-content-md-center">
+                                <div className="teacher-social"> 
+                                    <ul >
+                                        { teacher.urlYoutube.length > 2 &&
+                                            <li >
+                                                <a href={teacher.urlYoutube} className="youtube social">
+                                                    <FontAwesomeIcon icon={faYoutube} size="1x" />
+                                                </a>
+                                                <button className="youtube" onClick={navigate(teacher.urlYoutube)}>Youtube</button>
+                                            </li>  
+                                        }
+                                        { teacher.urlInstagram.length > 2  &&
+                                            <li >
+                                                <a href={teacher.urlInstagram} className="youtube social">
+                                                    <FontAwesomeIcon icon={faInstagram} size="1x" />
+                                                </a>
+                                                {/* <button className="instagram" onClick={navigate(teacher.urlInstagram)}>Instagram</button> */}
+                                            </li>  
+                                        }
+                                    </ul>
+                                </div>
+                            </Col>
+                            <Col className="justify-content-md-center">
+                                <YogaBox
+                                    class="teacher-type"
+                                    classitem="product-list-li"
+                                    yoga={teacher.type}></YogaBox>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col className="justify-content-md-center">
+                                <div className="teacher-large-details">
+                                    <div className="teacher-description">
+                                        <p className="teacher-description-textarea" >{teacher.des}</p> 
+                                    </div>
+                                </div>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <CommentsBox teachID={teacher._id}></CommentsBox>
+                            </Col>
+                        </Row>
+                    </Container>
+                //      <React.Fragment>
+                //         <h3 className="teacher-detail-title">{teacher.name}</h3>
+                //     <div className="teacher-detail">
+                //         <div>
+                //             <ImageBox
+                //                     imageID={teacher.img}
+                //                     clas="teacher-detail-img"
+                //                     alt="teacher"></ImageBox>                        
+                //             <div className="teacher-social"> 
+                //                 <ul >
+                //                     { teacher.urlYoutube.length > 2 &&
+                //                         <li >
+                //                             <a href={teacher.urlYoutube} className="youtube social">
+                //                                 <FontAwesomeIcon icon={faYoutube} size="1x" />
+                //                             </a>
+                //                             <button className="youtube" onClick={navigate(teacher.urlYoutube)}>Youtube</button>
+                //                         </li>  
+                //                     }
+                //                     { teacher.urlInstagram.length > 2  &&
+                //                         <li >
+                //                             <a href={teacher.urlInstagram} className="youtube social">
+                //                                 <FontAwesomeIcon icon={faInstagram} size="1x" />
+                //                             </a>
+                                            
+                //                         </li>  
+                //                     }
+                //                 </ul>
+                //             </div>
 
-                        </div>
+                //         </div>
 
-                        <div className="teacher-info">        
-                            <div className="teacher-place-country">Country: {teacher.country} </div>
-                            <div className="teacher-place-city">City: {teacher.place}</div>
-                            <LanguagesBox 
-                                class="product-list"
-                                classitem="product-list-li"
-                                languages={teacher.languages}></LanguagesBox>
-                                                        <YogaBox
-                            class="teacher-type"
-                            classitem="product-list-li"
-                            yoga={teacher.type}></YogaBox>
-                        </div>
-                        {/* <YogaBox
-                            class="teacher-type"
-                            classitem="product-list-li"
-                            yoga={teacher.type}></YogaBox> */}
+                //         <div className="teacher-info">        
+                //             <div className="teacher-place-country">Country: {teacher.country} </div>
+                //             <div className="teacher-place-city">City: {teacher.place}</div>
+                //             <LanguagesBox 
+                //                 class="product-list"
+                //                 classitem="product-list-li"
+                //                 languages={teacher.languages}></LanguagesBox>
+                //             <YogaBox
+                //                 class="teacher-type"
+                //                 classitem="product-list-li"
+                //                 yoga={teacher.type}></YogaBox>
+                //         </div>
 
-                        <div className="teacher-large-details">
+                //         <div className="teacher-large-details">
                             
-                            <div className="teacher-description">
+                //             <div className="teacher-description">
                                 
-                                <p className="teacher-description-textarea" >{teacher.des}</p>
+                //                 <p className="teacher-description-textarea" >{teacher.des}</p>
                                 
-                            </div>
+                //             </div>
 
-                        </div>
-                    </div>
-                    <CommentsBox teachID={teacher._id}></CommentsBox>
-                </React.Fragment>
+                //         </div>
+                //     </div>
+                //     <CommentsBox teachID={teacher._id}></CommentsBox>
+                // </React.Fragment>
 
 
                 
