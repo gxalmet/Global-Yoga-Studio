@@ -1,6 +1,7 @@
 //import React, { useState  } from 'react';
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper } from 'google-maps-react';
+import { Container } from 'react-bootstrap';
 
 // import { GoogleMap, LoadScript, Marker,  } from '@react-google-maps/api';
 // import {
@@ -19,8 +20,8 @@ import { Map, GoogleApiWrapper } from 'google-maps-react';
 // };
 
 const mapStyles = {
-  width: '80%',
-  height: '80%'
+  width: '80rem',
+  height: '80rem',
 };
  
 export class MyMap extends Component  {
@@ -62,18 +63,20 @@ export class MyMap extends Component  {
  
   render() {
     return (
-
-    <Map
-        google={this.props.google}
-        zoom={14}
-        style={mapStyles}
-        initialCenter={
-          {
-            lat: 41.40359,
-            lng: 2.15379
-          }
-        }
-      /> )
+      <Container>
+          <Map
+              google={this.props.google}
+              zoom={14}
+              style={mapStyles}
+              initialCenter={
+                {
+                  lat: 41.40359,
+                  lng: 2.15379
+                }
+              }
+            /> 
+      </Container> 
+      )
     // <LoadScript
     //   googleMapsApiKey="AIzaSyCQrgyzK8ytVni4hOcM-eMVkto1mz2IcGg"
     // >

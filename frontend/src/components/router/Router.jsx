@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 
 //import MyMap from './components/googleMaps/MyMap';
 import RegisterScreen from '../../screens/register/RegisterScreen';
+import RegisterUserScreen from '../../screens/register/RegisterUserScreen';
 import RegisterTeacherScreen from '../../screens/register/RegisterTeacherScreen';
 import TeacherProfileScreen from '../../screens/teacherprofile/TeacherProfileScreen';
 import  MyMap  from '../googleMaps/MyMap';
@@ -28,7 +29,8 @@ export default function Router(){
             <Route path="/teacher/:id" component={TeacherScreen}></Route>
             <Route path="/signin" component={SignInScreen}></Route>
             <Route path="/maps" component={MyMap}></Route>
-            <Route path="/registeruser" component={RegisterScreen}></Route>
+            <Route path="/register" component={RegisterScreen}></Route>
+            <Route path="/registeruser" component={RegisterUserScreen}></Route>
             <Route path="/registerteacher" component={RegisterTeacherScreen}></Route>
             <Route path="/userprofile" component={UserProfile}></Route>
             <Route path="/teacherprofile" component={TeacherProfileScreen}></Route>

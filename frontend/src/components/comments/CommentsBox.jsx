@@ -7,6 +7,7 @@ import LoadingBox from '../../components/loadingBox/LoadingBox';
 import MessageBox from '../../components/messagebox/MessageBox';
 import './comment.css';
 import { Container} from 'react-bootstrap';
+import { Link } from 'react-router-dom'
 
 
 export default  function  CommentsBox(props)  {
@@ -42,7 +43,7 @@ export default  function  CommentsBox(props)  {
     if(!userInfo){
         return (
             <div>
-                <h3>Register to comment.</h3>
+                <h3><Link to="/register">Register</Link> to comment.</h3>
             </div>
         ); 
     }else{

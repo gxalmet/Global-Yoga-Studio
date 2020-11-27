@@ -39,8 +39,9 @@ export default function RegisterScreen(props) {
     }, [props.history, userInfo]);
 
     return (
+        
         <Form className="form" onSubmit={submitHandler}>
-            { teacherFlag ? ( <h4>Register as a teacher</h4> ) : ( <h4>Register as a practitioner</h4> )}
+            { teacherFlag ? ( <h4>Register as a teacher</h4> ) : ( <h4>Register as a yogini</h4> )}
             
             { loading && ( <LoadingBox>User created!!</LoadingBox> ) }
             { error && ( <MessageBox variant='danger'>{error}</MessageBox> ) }

@@ -116,7 +116,7 @@ padding: 0.5rem;
 
 .sidebar {
     position: fixed;
-    transform: translateX(-35rem);
+    transform: translateX(-35rem) !important;
     width: 30rem;
     height: 100%;
 }
@@ -129,7 +129,7 @@ padding: 0.5rem;
 }
 
 .sidebar-button {
-    transform: translateX(0);
+    transform: translateX(0) !important;
     width: 30rem;
     height: 5rem;
     cursor: pointer;
