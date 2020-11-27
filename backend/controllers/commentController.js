@@ -1,10 +1,9 @@
 import Comment from '../models/commentModel.js';
 import mongodb from 'mongodb';
 const { ObjectId } = mongodb;
-import bcrypt from 'bcryptjs';
+//import bcrypt from 'bcryptjs';
 
-import { getToken, generateToken } from '../utils.js';
-
+//import { getToken, generateToken } from '../utils.js';
 
 var commentController = {
 
@@ -17,8 +16,6 @@ var commentController = {
             userID: req.body.userID,
             teacherIDProfile: req.body.teacherIDProfile
         });
-
-
 
         try {
             const insertedComment = await comment.save();

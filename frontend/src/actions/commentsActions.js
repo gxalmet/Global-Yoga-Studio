@@ -26,13 +26,13 @@ export const commentsListAction = (teacherID) => async(dispatch, getState) => {
 
 };
 
-export const commentCreateAction = (teacherID, userID, text) => async(dispatch, getState) => {
+export const commentCreateAction = (teacherID, userID, text, parentID) => async(dispatch, getState) => {
 
     const { userSignIn: { userInfo } } = getState();
 
     const body = {
         text: text,
-        parentID: '',
+        parentID: parentID,
         userID: userID,
         teacherIDProfile: teacherID
     };

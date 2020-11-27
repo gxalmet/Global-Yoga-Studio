@@ -6,6 +6,8 @@ import CommentsList from './CommentsList';
 import LoadingBox from '../../components/loadingBox/LoadingBox';
 import MessageBox from '../../components/messagebox/MessageBox';
 import './comment.css';
+import { Container} from 'react-bootstrap';
+
 
 export default  function  CommentsBox(props)  {
 
@@ -46,14 +48,14 @@ export default  function  CommentsBox(props)  {
     }else{
         
         return (
-            
-            <div className="commentBox">
-                <h3>Opinions</h3>
+            <Container>
+            {/* <div className="commentBox"> */}
+                <h5>Opinions</h5>
                 { loading && ( <LoadingBox>Loading comments...</LoadingBox> ) }
                 { error && ( <MessageBox variant='danger'>{error}</MessageBox> )}
                 { list && (
                     <React.Fragment>
-                        <CommentForm teacherID={commTeachID}></CommentForm>
+                        <CommentForm teacherID={commTeachID} parentID=""></CommentForm>
                         <CommentsList 
                             teacherID={commTeachID} 
                             comments={list}></CommentsList>
@@ -61,7 +63,8 @@ export default  function  CommentsBox(props)  {
                     </React.Fragment>
                 )}
 
-            </div>
+            {/* </div> */}
+            </Container>
             
         );
     }

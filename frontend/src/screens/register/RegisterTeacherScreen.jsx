@@ -1,17 +1,17 @@
 import 
-    React 
-    // ,{ 
+    React
+    // , { 
     //     useState ,
-    //     useEffect
-    // }
-     from 'react';
+    //     useEffect 
+    // } 
+    from 'react';
 //import { useDispatch, useSelector } from 'react-redux';
 //import {Link} from 'react-router-dom';
 //import { register } from '../../actions/userActions';
 // import LoadingBox from '../../components/loadingBox/LoadingBox';
 // import MessageBox from '../../components/messagebox/MessageBox';
 import Register from '../../components/register/register';
-//import './RegisterScreen.css';
+import './RegisterScreen.css';
 // import { Form, Button } from 'react-bootstrap';
 
 export default function RegisterScreen(props) {
@@ -44,7 +44,7 @@ export default function RegisterScreen(props) {
     // }, [props.history, redirect, userInfo]);
 
     return (
-        <Register teacher ={false} ></Register>
+        <Register teacher ={true} ></Register>
         // <Form className="form" onSubmit={submitHandler}>
         //     <h4>Register</h4>
         //     { loading && ( <LoadingBox>User created!!</LoadingBox> ) }

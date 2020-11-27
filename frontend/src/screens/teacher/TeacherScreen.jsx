@@ -19,8 +19,10 @@ import {
 import {
     faYoutube,
     faInstagram
-  } from "@fortawesome/free-brands-svg-icons";
-  import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+
 
 export default function TeacherScreen(props){
     
@@ -72,6 +74,7 @@ export default function TeacherScreen(props){
                                     languages={teacher.languages}>
                                 </LanguagesBox>
                             </Col>
+                            { ( teacher.urlYoutube.length > 2 || teacher.urlInstagram.length > 2 ) &&
                             <Col className="justify-content-md-center">
                                 <div className="teacher-social"> 
                                     <ul >
@@ -93,7 +96,9 @@ export default function TeacherScreen(props){
                                         }
                                     </ul>
                                 </div>
-                            </Col>
+                            </Col> 
+                            }
+
                             <Col className="justify-content-md-center">
                                 <YogaBox
                                     class="teacher-type"

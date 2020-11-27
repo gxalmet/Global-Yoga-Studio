@@ -113,3 +113,40 @@ padding: 0.5rem;
 
 /* color: black;
 } */
+
+.sidebar {
+    position: fixed;
+    transform: translateX(-35rem);
+    width: 30rem;
+    height: 100%;
+}
+
+.sidebar.open {
+    transform: translateX(0) !important;
+    background-color: transparent;
+    transform: translatey(35rem) !important;
+    transition-property: initial;
+}
+
+.sidebar-button {
+    transform: translateX(0);
+    width: 30rem;
+    height: 5rem;
+    cursor: pointer;
+    text-align: left;
+    color: grey;
+    border-color: white;
+}
+
+.brand button {
+    font-size: 3rem;
+    padding: 0.5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.brand button:active {
+    border: none;
+}

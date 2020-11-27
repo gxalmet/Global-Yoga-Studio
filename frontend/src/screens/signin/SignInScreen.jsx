@@ -38,7 +38,7 @@ export default function SignInScreen(props) {
                 <Form.Control type="password" placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
             </Form.Group>
             <br></br>
-            <Button  variant="primary" size= "lg" type="submit">
+            <Button  variant="primary" block type="submit">
                 Submit
             </Button>
         </Form>

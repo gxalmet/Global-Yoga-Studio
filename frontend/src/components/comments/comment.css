@@ -1,4 +1,4 @@
-.commentBox {
+/* .commentBox {
     display: grid;
     border: 3px solid grey;
     border-radius: .5rem;
@@ -14,22 +14,16 @@
 
 .commentList {
     display: table-column;
-    /* border: 3px solid grey;
-    border-radius: .5rem; */
 }
 
 .comment {
     margin: 4rem;
     display: grid;
     border-top: 3px solid grey;
-    /* border: 3px solid grey;
-    border-radius: .5rem; */
 }
 
 .comment-form {
     display: inline-block;
-    /* border: 3px solid grey;
-    border-radius: .5rem; */
     font-size: 1.3rem;
     color: grey;
 }
@@ -43,8 +37,6 @@
     margin: 0.8rem;
     font-size: 1.5rem;
     color: grey;
-    /* border: 3px solid grey;
-    border-radius: .5rem; */
 }
 
 .comment-text {
@@ -55,7 +47,6 @@
 }
 
 .comment-input {
-    /* display: inline-block; */
     width: 100rem;
     padding: .8rem;
     border: 3px solid grey;
@@ -70,4 +61,4 @@
     border: 3px solid grey;
     border-radius: 0.5rem;
     display: grid;
-}
+} */

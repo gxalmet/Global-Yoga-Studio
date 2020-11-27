@@ -1,104 +1,123 @@
-import React from 'react';
+import 
+    React
+    // , 
+    // {
+    //     useState
+    // } 
+    from 'react';
 import { 
     useDispatch, 
     useSelector 
 } from 'react-redux';
 import { signOut } from '../../actions/userActions';
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './mainnav.css';
 import { 
     Navbar, 
     Nav, 
-    // NavItem, 
-    NavDropdown, 
+// NavItem, 
+    NavDropdown,
+// Container, 
+// Button,
 //    Container,
-    // MenuItem 
+// MenuItem 
 } from 'react-bootstrap';
+//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import {
+//     faUser
+//   } from "@fortawesome/free-brands-svg-icons";
+//import Icon from '@material-ui/core/Icon';
+//import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import { useHistory } from "react-router-dom";
 
-export default function MainNav() {
+// import AccountCircle from '@material-ui/icons/AccountCircle';
+// import SvgIcon from '@material-ui/core/SvgIcon';
+//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+//import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+
+import { FaUserAlt } from 'react-icons/fa';
+
+export default function MainNav(props) {
+
+    const history = useHistory();
 
     const userSignIn = useSelector((state)=>state.userSignIn);
+    
     const {userInfo} = userSignIn;
-    // const handleMenu = () => {
-    //   var sidebarMenu = document.querySelector(".sidebar");
-    //   if(sidebarMenu){
-    //     var open = document.querySelector(".sidebar").classList.contains("open");
-    //     if (open === false) {
-    //         document.querySelector(".sidebar").classList.add("open");
-    //     } else {
-    //         document.querySelector(".sidebar").classList.remove("open");
-    //     }
-    //   }
-    // }
+
     const dispatch = useDispatch();
     const signOutHandler = () => {
-      dispatch(signOut());
+        dispatch(signOut());
+        history.push("/");
+        //props.history.push('/');
+    }
+    const handleMenu = () => {
+        var open = document.querySelector(".sidebar").classList.contains("open");
+        if (open === false) {
+            document.querySelector(".sidebar").classList.add("open");
+        } else {
+            document.querySelector(".sidebar").classList.remove("open");
+        }
     }
 
     return (
         <React.Fragment>
-            {/* <header className="header"> */}
-                <Navbar bg="light" variant="light" expand="true" fixed="top">
-                    <Navbar.Brand href="/">
-                    <h1>
-                        <img  
-                            src={process.env.PUBLIC_URL + '/images/logo.jpg'} 
-                            alt="Global Yoga Studio" 
-                            width="30"
-                            height="30"
-                            className="d-inline-block align-top logo">
-                        </img>
-                        Global Yoga Studio
-                    </h1>
+                <Navbar bg="light" variant="light"  fixed="top" >
+                    <button variant="secundary" onClick={handleMenu}>
+                        &#9776;
+                    </button>
+                    <div className="sidebar">
+                        { (userInfo && userInfo.teacher) && 
+                            (<Link to="/teacherprofile"><button className="sidebar-button" >Teacher Profile</button></Link>)
+                        }
+                        <Link to="/"><button className="sidebar-button" >Yoga Categories</button></Link>
+                        <Link to="/"><button className="sidebar-button" >Places</button></Link>
+                        <Link to="/maps"><button className="sidebar-button" >Teacher maps</button></Link>
+                    </div>
+                    <Navbar.Brand href="/" >
+                        <h1>
+                            <img  
+                                src={process.env.PUBLIC_URL + '/images/logo.jpg'} 
+                                alt="Global Yoga Studio" 
+                                width="30"
+                                height="30"
+                                className="d-inline-block align-top logo">
+                            </img>
+                            Global Yoga Studio
+                        </h1>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="mr-auto">
-                        <Nav.Link href="/">Home</Nav.Link>
-                            { userInfo && userInfo.teacher && 
-                                (<Nav.Link href="/teacherprofile">Teacher Profile</Nav.Link>)
+                    <Navbar.Collapse className="justify-content-end" >
+                        <Nav>
+                            { userInfo &&               
+                                <NavDropdown alignRight 
+                                    title={
+                                        <React.Fragment>
+                                            &nbsp;<FaUserAlt size="1.8rem"></FaUserAlt> &nbsp;                                  
+                                        </React.Fragment>
+                                    } 
+                                    id="collasible-nav-dropdown">
+                                    
+                                    <NavDropdown.Item  href="/userprofile">{userInfo.name} {userInfo.surname}: User profile</NavDropdown.Item>
+                                    <NavDropdown.Item onClick={signOutHandler}>Sign out</NavDropdown.Item>
+                                </NavDropdown>
                             }
-                            
-                            <Nav.Link href="/maps">Map of teachers</Nav.Link>
-                            <Nav.Link href="/">Yoga teachers</Nav.Link>
-                            { !userInfo && 
-                                (
-                                <NavDropdown title="Yoga Teacher" id="collasible-nav-dropdown">
-                                    <NavDropdown.Item href="/signin">Sign In</NavDropdown.Item>
+                            { !userInfo &&                  
+                                <NavDropdown 
+                                    title={
+                                        <React.Fragment>
+                                            &nbsp;<FaUserAlt size="1.8rem"></FaUserAlt> &nbsp;
+                                            User
+                                        </React.Fragment>
+                                    } 
+                                    id="collasible-nav-dropdown">
+                                    <NavDropdown.Item href="/signin">Sign in</NavDropdown.Item>
                                     <NavDropdown.Item href="/register">Register</NavDropdown.Item>
                                 </NavDropdown>
-                                )
-                            }
-                            { !userInfo && 
-                                                                (
-                                <NavDropdown title="Practitioner" id="collasible-nav-dropdown">
-                                    <NavDropdown.Item href="/signin">Sign In</NavDropdown.Item>
-                                    <NavDropdown.Item href="/register">Register</NavDropdown.Item>
-                                </NavDropdown>
-                                )
-                            }
-                            
-                            
+                            }                         
                         </Nav>
-                        { userInfo &&
-                            <Navbar.Collapse className="justify-content-end">
-                                <Navbar.Text>
-                                    Signed in as: <a href="/userprofile">{userInfo.name} {userInfo.surname}</a>
-                                </Navbar.Text>
-                            </Navbar.Collapse>
-                        }
-                        { userInfo &&
-                             <Navbar.Collapse className="justify-content-end">
-                                <Navbar.Text>
-                                    <a href="#signout" onClick={signOutHandler}>Sign Out</a>
-                                </Navbar.Text>
-                            </Navbar.Collapse>
-                        }
-                        
                     </Navbar.Collapse>
-
                 </Navbar>
-            {/* </header> */}
         </React.Fragment>
     );
 }

@@ -103,6 +103,7 @@ export default function TeacherProfileScreen() {
         
     }
     const handleChangeImg = async (e) => {
+        
         const file = e.target.files[0];
         setImg(URL.createObjectURL(file));
         const bodyFormData = new FormData();
@@ -142,7 +143,7 @@ export default function TeacherProfileScreen() {
             dispacth(teacherDetailsUserAction(userInfo._id));
         }
         
-    }, [dispacth, loadingRead, teacherRead, userInfo._id]);
+    }, [dispacth, loadingRead, teacherRead, userInfo]);
 
 
     if(teacherRead === null){
@@ -176,7 +177,7 @@ export default function TeacherProfileScreen() {
                                 id="custom-file"
                                 label={img}
                                 custom
-                                onChange={handleChangeImg}/>
+                                onChange={(e)=>handleChangeImg(e)}/>
                             
                             {/* <img src={img} className="teacher-detail-img" alt="Your Awesome Image"/> */}
                         </div>
