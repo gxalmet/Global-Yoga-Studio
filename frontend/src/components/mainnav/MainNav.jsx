@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import 
     React
     // , 
@@ -51,19 +52,63 @@ export default function MainNav(props) {
         history.push("/");
         //props.history.push('/');
     }
-    const handleMenu = () => {
-        var open = document.querySelector(".sidebar").classList.contains("open");
-        if (open === false) {
-            document.querySelector(".sidebar").classList.add("open");
-        } else {
-            document.querySelector(".sidebar").classList.remove("open");
-        }
+    // const handleMenu = () => {
+    //     var open = document.querySelector(".sidebar").classList.contains("open");
+    //     if (open === false) {
+    //         document.querySelector(".sidebar").classList.add("open");
+    //     } else {
+    //         document.querySelector(".sidebar").classList.remove("open");
+    //     }
+    // }
+
+//     <div id="myNav" class="overlay">
+//   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+//   <div class="overlay-content">
+//     <a href="#">About</a>
+//     <a href="#">Services</a>
+//     <a href="#">Clients</a>
+//     <a href="#">Contact</a>
+//   </div>
+// </div>
+
+// <h2>Fullscreen Overlay Nav Example</h2>
+// <p>Click on the element below to open the fullscreen overlay navigation menu.</p>
+// <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+
+// <script>
+// function openNav() {
+//   document.getElementById("myNav").style.display = "block";
+// }
+
+// function closeNav() {
+//   document.getElementById("myNav").style.display = "none";
+// }
+    const openNav = () => {
+        document.getElementById("myNav").style.display = "block";
+    }
+    const closeNav = () => {
+        document.getElementById("myNav").style.display = "none";
     }
 
     return (
         <React.Fragment>
                 <Navbar bg="light" variant="light"  fixed="top" >
-                    <button variant="secundary" onClick={handleMenu}>
+
+                    <span className="hamburguer" onClick={openNav}>
+                        &#9776;
+                    </span>
+                    <div id="myNav" className="overlay">
+                        <a className="closebtn" onClick={closeNav}>&times;</a>
+                        <div className="overlay-content">
+                            { (userInfo && userInfo.teacher) && 
+                                (<Link to="/teacherprofile">Teacher Profile</Link>)
+                            }
+                            <Link to="/">Yoga Categories</Link>
+                            <Link to="/">Places</Link>
+                            <Link to="/maps">Teacher maps</Link>
+                        </div>
+                    </div>
+                    {/* <button variant="secundary" onClick={handleMenu}>
                         &#9776;
                     </button>
                     <div className="sidebar">
@@ -73,7 +118,7 @@ export default function MainNav(props) {
                         <Link to="/"><button className="sidebar-button" >Yoga Categories</button></Link>
                         <Link to="/"><button className="sidebar-button" >Places</button></Link>
                         <Link to="/maps"><button className="sidebar-button" >Teacher maps</button></Link>
-                    </div>
+                    </div> */}
                     <Navbar.Brand href="/" >
                         <h1>
                             <img  
