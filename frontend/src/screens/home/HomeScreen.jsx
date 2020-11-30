@@ -1,4 +1,5 @@
-import React, {  useEffect} from 'react';
+/* eslint-disable no-use-before-define */
+import React, {  useEffect, useState} from 'react';
 //import { Link } from 'react-router-dom';
 import { useSelector, useDispatch} from 'react-redux';
 import { teachersListAction }  from '../../actions/teachersActions'
@@ -7,31 +8,56 @@ import CardBox from '../../components/cardbox/CardBox';
 import {
   // Media, 
   // Card, 
-  // Button, 
+  Button, 
   // CardGroup, 
-  CardColumns 
+  // CardColumns ,
+  // CardDeck,
+  Form,
+  Container,
+  Row,
+  Col
 } from 'react-bootstrap';
 
+import { yogaList } from '../../constants/yogaConstants';
+import { languagesList } from '../../constants/languageConstants';
+
 export default function HomeScreen(props){
+
+  const chunk = (array,size) => {
+    
+    var R = [];
+    
+    var lon = array.length;
+    
+    for (var i = 0; i < lon; i += size)
+      R.push(array.slice(i, i + size));
+    return R;
+  };
+
   const dispatch = useDispatch();
   const teachersList = useSelector( (state) => state.teachersList) || {};
   const { teachers, loading, error } = teachersList;
-
-  // if(teachers){
-  //   teachers.map(teach => {
-  //     teach.imgURL = getImageUrl(teach.img)
-  //     return teach;
-  //   })
-  // }
+  const [colTeach, setColTeach] = useState([]);
+  
+  if(loading === false && teachers.length > 0 && colTeach.length === 0){
+      const teach = chunk(teachers,3);
+      setColTeach(teach);
+      
+  }
   
   
   useEffect(() => {
     dispatch(teachersListAction());
-
+    // if(loading === false && teachers.length > 0 && colTeach.length === 0){
+    //   const teach = chunk(teachers,3);
+    //   setColTeach(teach);
+    // }
     
   },[dispatch]);
 
-
+  const submitHandler = async (e) => {
+    e.preventDefault();
+  }
   
   
   if(loading){
@@ -40,47 +66,73 @@ export default function HomeScreen(props){
   return ( <MessageBox variant="danger">{error}</MessageBox>)
   }else{
     return (
-    // <ul className="products">
-    // {
-    //   teachers &&
-    //   teachers.map((prod,h)=>{
-    //     return (
-    //     <li key={h}>
-    //       <div className="product">
-    //       <Link to={'/teacher/' + prod._id}><ImageBox
-    //           imageID={prod.img}
-    //           clas="product-image"
-    //           alt="product"></ImageBox></Link>
-    //         <div className="product-name"><Link to={'/teacher/' + prod._id}>{prod.name}</Link></div>
-    //         <div className="product-place">{prod.country} {prod.place}</div>
-    //         <LanguagesBox 
-    //           class="product-list"
-    //           classitem="product-list-li"
-    //           languages={prod.languages}></LanguagesBox>
-    //         <YogaBox
-    //           class="product-list"
-    //           classitem="product-list-li"
-    //           yoga={prod.type}></YogaBox>
 
-    //          <div className="product-type-li">{prod.remote}</div> 
-    //       </div>
-    //     </li>)
+    <Container>
       
-    //   })
-    // }
-    // </ul>
+        <Row>
+          
+          <Col>
+          <Form.Label htmlFor="languages">Languages</Form.Label>
+                        
+            <Form.Control as="select" multiple 
+                // onChange={handleChangeLanguages} 
+                // value={languages}
+                >
+                    { languagesList.map((langItem,j)=>{
+                        return <option key ={j} value={langItem.value}>{langItem.label}</option>    
+                    })}
+                
+            </Form.Control>
+          </Col>
+          <Col>
+            <Form.Label htmlFor="type">Type</Form.Label>
+            <Form.Control 
+                as="select" 
+                multiple
+                // onChange={handleChangeTypes} 
+                // value={type}
+                >
+                    {yogaList.map((yogaItem,i)=>{
+                        return <option key ={i} value={yogaItem.value}>{yogaItem.label}</option>    
+                    })}
+                
+            </Form.Control>
+          </Col>
+        </Row>
+        <Row>
+          <Col><Button className="primary" block onClick={submitHandler}>Search teachers</Button></Col>
+        </Row>
     
-    <CardColumns>
         { teachers &&
-          teachers.map((teach,h)=>{
+          
+          colTeach.map((teach,h)=>{
+            
             return (
-              <CardBox key={h} teacher ={teach}></CardBox>
+              <Row>
+                { teach[0] !== undefined &&
+                  <Col>
+                    <CardBox key={teach[0]._id} teacher ={teach[0]}></CardBox>
+                  </Col>
+                }
+                { teach[1] !== undefined &&
+                  <Col>
+                    <CardBox key={teach[1]._id} teacher ={teach[1]}></CardBox>
+                  </Col>
+                }
+                { teach[2] !== undefined &&
+                  <Col>
+                    <CardBox key={teach[2]._id} teacher ={teach[2]}></CardBox>
+                  </Col>
+                }
+
+              </Row>
+              
             )
           })
         }
         
-      </CardColumns>
       
+      </Container>
     )
   }
  

@@ -4,7 +4,9 @@ import LanguagesBox from '../../components/languages/LanguagesBox';
 import YogaBox from '../../components/yoga/YogaBox';
 //import { Link } from 'react-router-dom';
 import { 
-    Card, 
+    Card,
+    // Row,
+    // Col 
 //    Button 
 } from 'react-bootstrap';
 import Axios from 'axios';
@@ -32,12 +34,13 @@ export default function CardBox(props)  {
     }, [imgURL, teach.img]);
     
     return (
+
         <Card  border="light">
-             
+            
                 {/* <ImageBox
-              imageID={teach.img}
-              clas="product-image"
-              alt="product"></ImageBox> */}
+            imageID={teach.img}
+            clas="product-image"
+            alt="product"></ImageBox> */}
             { imgURL.length > 0 &&
                 <Card.Img variant="top" src={imgURL}></Card.Img>
             }   
@@ -66,6 +69,7 @@ export default function CardBox(props)  {
             </Card.Body>
             </Card.ImgOverlay> 
         </Card>
+
     );
 }
 
